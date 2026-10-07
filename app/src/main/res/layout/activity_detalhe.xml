@@ -19,13 +19,19 @@
                 android:id="@+id/imgDetalhe"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:background="@color/placeholderColor"
+                android:contentDescription="@string/desc_imagem_receita" />
 
+            <!-- paddingBottom grande para o botão flutuante não cobrir o último texto -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="24dp">
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:paddingTop="24dp"
+                android:paddingBottom="96dp">
 
                 <TextView
                     android:id="@+id/txtTituloDetalhe"
@@ -36,13 +42,21 @@
                     android:textColor="@color/primaryColor" />
 
                 <TextView
+                    android:id="@+id/txtCategoriaTempo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Ingredientes"
+                    android:layout_marginTop="4dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/textColorSecondary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titulo_ingredientes"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginTop="24dp"
-                    android:textColor="@color/textColorPrimary"/>
+                    android:textColor="@color/textColorPrimary" />
 
                 <TextView
                     android:id="@+id/txtIngredientes"
@@ -51,26 +65,52 @@
                     android:layout_marginTop="8dp"
                     android:lineSpacingExtra="4dp"
                     android:textSize="16sp"
-                    android:textColor="@color/textColorSecondary"/>
+                    android:textColor="@color/textColorSecondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Modo de Preparo"
+                    android:text="@string/titulo_modo_preparo"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:layout_marginTop="24dp"
-                    android:textColor="@color/textColorPrimary"/>
+                    android:textColor="@color/textColorPrimary" />
 
                 <TextView
                     android:id="@+id/txtModoPreparo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="80dp"
                     android:lineSpacingExtra="4dp"
                     android:textSize="16sp"
-                    android:textColor="@color/textColorSecondary"/>
+                    android:textColor="@color/textColorSecondary" />
+
+                <!-- Só aparece quando a receita tem observação (campo opcional) -->
+                <LinearLayout
+                    android:id="@+id/containerObservacao"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/titulo_observacao"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="24dp"
+                        android:textColor="@color/textColorPrimary" />
+
+                    <TextView
+                        android:id="@+id/txtObservacao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:lineSpacingExtra="4dp"
+                        android:textSize="16sp"
+                        android:textColor="@color/textColorSecondary" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -81,6 +121,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="24dp"
+        android:contentDescription="@string/desc_favoritar"
         app:tint="@android:color/white"
         app:backgroundTint="@color/primaryColor"
         android:src="@android:drawable/btn_star_big_off" />

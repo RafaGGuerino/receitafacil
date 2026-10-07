@@ -7,6 +7,7 @@
     <color name="backgroundColor">#F5F5F6</color>
     <color name="textColorPrimary">#212121</color>
     <color name="textColorSecondary">#757575</color>
+    <color name="placeholderColor">#E0E0E0</color>
 
     <!-- Cores para o sistema e ícones -->
     <color name="black">#FF000000</color>

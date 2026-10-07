@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Receita Facil</string>
+
+    <!-- Tela principal -->
+    <string name="filtro_todas">Todas</string>
+    <string name="filtro_favoritas">Favoritas</string>
+    <string name="msg_sem_favoritas">Não há receitas curtidas</string>
+
+    <!-- Detalhe -->
+    <string name="titulo_ingredientes">Ingredientes</string>
+    <string name="titulo_modo_preparo">Modo de Preparo</string>
+    <string name="titulo_observacao">Observação</string>
+
+    <!-- Formato: Categoria • X min -->
+    <string name="detalhes_basicos">%1$s • %2$d min</string>
+
+    <!-- Acessibilidade -->
+    <string name="desc_imagem_receita">Foto da receita</string>
+    <string name="desc_favoritar">Favoritar receita</string>
 </resources>

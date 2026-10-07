@@ -3,6 +3,7 @@ package com.rafagguerino.receitafacil.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.rafagguerino.receitafacil.R
 import com.rafagguerino.receitafacil.databinding.ItemReceitaBinding
 import com.rafagguerino.receitafacil.model.Receita
 
@@ -21,9 +22,13 @@ class ReceitaAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val receita = receitas[position]
         with(holder.binding) {
-            // Referências atualizadas de acordo com o novo layout Material Design
             txtTituloReceita.text = receita.nome
-            txtDetalhesBasicos.text = "${receita.categoria} • ${receita.tempoPreparoMin} min"
+            txtDetalhesBasicos.text = root.context.getString(
+                R.string.detalhes_basicos,
+                receita.categoria,
+                receita.tempoPreparoMin
+            )
+            // imagemRes é opcional: sem imagem, o fundo cinza do layout permanece
             receita.imagemRes?.let { imgReceita.setImageResource(it) }
 
             root.setOnClickListener { onItemClick(receita) }

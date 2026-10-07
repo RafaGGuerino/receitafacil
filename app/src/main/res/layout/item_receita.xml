@@ -12,18 +12,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Imagem da Receita -->
+        <!-- Imagem da receita (cinza quando não há imagem) -->
         <ImageView
             android:id="@+id/imgReceita"
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:scaleType="centerCrop"
-            android:background="#E0E0E0"
+            android:background="@color/placeholderColor"
+            android:contentDescription="@string/desc_imagem_receita"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Título da Receita -->
+        <!-- Título da receita -->
         <TextView
             android:id="@+id/txtTituloReceita"
             android:layout_width="0dp"
@@ -36,7 +37,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Tempo / Dificuldade -->
+        <!-- Categoria • tempo de preparo -->
         <TextView
             android:id="@+id/txtDetalhesBasicos"
             android:layout_width="0dp"
@@ -48,7 +49,8 @@
             android:textColor="@color/textColorSecondary"
             app:layout_constraintTop_toBottomOf="@id/txtTituloReceita"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
