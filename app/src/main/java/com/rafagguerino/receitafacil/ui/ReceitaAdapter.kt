@@ -21,9 +21,11 @@ class ReceitaAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val receita = receitas[position]
         with(holder.binding) {
-            tvNome.text = receita.nome
-            tvInfo.text = "${receita.categoria} • ${receita.tempoPreparoMin} min"
-            receita.imagemRes?.let { ivReceita.setImageResource(it) }
+            // Referências atualizadas de acordo com o novo layout Material Design
+            txtTituloReceita.text = receita.nome
+            txtDetalhesBasicos.text = "${receita.categoria} • ${receita.tempoPreparoMin} min"
+            receita.imagemRes?.let { imgReceita.setImageResource(it) }
+
             root.setOnClickListener { onItemClick(receita) }
         }
     }

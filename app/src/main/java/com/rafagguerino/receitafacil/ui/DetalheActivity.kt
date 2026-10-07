@@ -2,7 +2,6 @@ package com.rafagguerino.receitafacil.ui
 
 import android.os.Build
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.rafagguerino.receitafacil.databinding.ActivityDetalheBinding
 import com.rafagguerino.receitafacil.model.Receita
@@ -14,7 +13,6 @@ class DetalheActivity : AppCompatActivity() {
     }
 
     private lateinit var binding: ActivityDetalheBinding
-    private var favorito = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,38 +31,14 @@ class DetalheActivity : AppCompatActivity() {
             return
         }
 
-        favorito = savedInstanceState?.getBoolean("favorito") ?: false
         exibir(receita)
-        atualizarFavorito()
-
-        binding.btnFavoritar.setOnClickListener {
-            favorito = !favorito
-            atualizarFavorito()
-        }
     }
 
     private fun exibir(receita: Receita) = with(binding) {
-        tvNomeDetalhe.text = receita.nome
-        tvMeta.text = "${receita.categoria} • ${receita.tempoPreparoMin} min"
-        tvIngredientes.text = receita.ingredientes.joinToString("\n") { "• $it" }
-        tvPreparo.text = receita.modoPreparo
-        receita.imagemRes?.let { ivDetalhe.setImageResource(it) }
+        txtTituloDetalhe.text = receita.nome
+        txtIngredientes.text = receita.ingredientes.joinToString("\n") { "• $it" }
+        txtModoPreparo.text = receita.modoPreparo
 
-        if (receita.observacao != null) {
-            tvObservacao.text = "Obs.: ${receita.observacao}"
-            tvObservacao.visibility = View.VISIBLE
-        } else {
-            tvObservacao.visibility = View.GONE
-        }
-    }
-
-    private fun atualizarFavorito() = with(binding) {
-        tvFavorito.text = if (favorito) "★" else "☆"
-        btnFavoritar.text = if (favorito) "Remover dos favoritos" else "Favoritar"
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putBoolean("favorito", favorito)
+        receita.imagemRes?.let { imgDetalhe.setImageResource(it) }
     }
 }
