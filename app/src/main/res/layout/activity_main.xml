@@ -3,23 +3,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:fitsSystemWindows="true">
+    android:background="@color/backgroundColor">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Botões de Navegação -->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Receita Fácil"
-        android:textSize="28sp"
-        android:textStyle="bold" />
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="12dp" />
+        <Button
+            android:id="@+id/btnTodas"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Todas"
+            android:layout_marginEnd="8dp"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvReceitas"
+        <Button
+            android:id="@+id/btnFavoritas"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Favoritas"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Container da Lista e da Mensagem Vazia -->
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvReceitas"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            android:clipToPadding="false"/>
+
+        <TextView
+            android:id="@+id/txtVazio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Não há receitas curtidas"
+            android:textSize="18sp"
+            android:textColor="@color/textColorSecondary"
+            android:visibility="gone" />
+    </FrameLayout>
 </LinearLayout>
