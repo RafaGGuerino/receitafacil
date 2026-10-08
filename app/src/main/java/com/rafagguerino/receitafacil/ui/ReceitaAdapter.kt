@@ -1,9 +1,11 @@
 package com.rafagguerino.receitafacil.ui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.rafagguerino.receitafacil.R
+import com.rafagguerino.receitafacil.data.FavoritosStorage
 import com.rafagguerino.receitafacil.databinding.ItemReceitaBinding
 import com.rafagguerino.receitafacil.model.Receita
 
@@ -28,8 +30,11 @@ class ReceitaAdapter(
                 receita.categoria,
                 receita.tempoPreparoMin
             )
-            // imagemRes é opcional: sem imagem, o fundo cinza do layout permanece
             receita.imagemRes?.let { imgReceita.setImageResource(it) }
+
+            // Selo de "curtida" visível só para favoritas
+            val curtida = FavoritosStorage.isFavorito(root.context, receita.id)
+            txtSeloCurtida.visibility = if (curtida) View.VISIBLE else View.GONE
 
             root.setOnClickListener { onItemClick(receita) }
         }

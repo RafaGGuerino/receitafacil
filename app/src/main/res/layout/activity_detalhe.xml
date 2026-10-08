@@ -15,13 +15,37 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imgDetalhe"
+            <!-- Imagem + selo de curtida sobreposto -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:scaleType="centerCrop"
-                android:background="@color/placeholderColor"
-                android:contentDescription="@string/desc_imagem_receita" />
+                android:layout_height="250dp">
+
+                <ImageView
+                    android:id="@+id/imgDetalhe"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="@color/placeholderColor"
+                    android:contentDescription="@string/desc_imagem_receita" />
+
+                <!-- Só aparece quando a receita está curtida -->
+                <TextView
+                    android:id="@+id/txtSeloCurtidaDetalhe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="16dp"
+                    android:background="@drawable/bg_selo_curtida"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp"
+                    android:paddingTop="6dp"
+                    android:paddingBottom="6dp"
+                    android:text="@string/selo_curtida"
+                    android:textColor="@color/secondaryColor"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+            </FrameLayout>
 
             <!-- paddingBottom grande para o botão flutuante não cobrir o último texto -->
             <LinearLayout

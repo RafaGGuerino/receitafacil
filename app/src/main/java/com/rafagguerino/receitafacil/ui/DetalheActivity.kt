@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
 import com.rafagguerino.receitafacil.R
 import com.rafagguerino.receitafacil.data.FavoritosStorage
 import com.rafagguerino.receitafacil.databinding.ActivityDetalheBinding
@@ -27,6 +28,9 @@ class DetalheActivity : AppCompatActivity() {
         // Seta de voltar na barra superior
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        exibirLogoNoTopo()
+
         val receita = if (Build.VERSION.SDK_INT >= 33) {
             intent.getSerializableExtra(EXTRA_RECEITA, Receita::class.java)
         } else {
@@ -49,6 +53,12 @@ class DetalheActivity : AppCompatActivity() {
             isFavorito = !isFavorito
             FavoritosStorage.setFavorito(this, receitaAtual.id, isFavorito)
             atualizarIconeFavorito()
+
+            val mensagem = if (isFavorito) R.string.msg_favorito_adicionado
+            else R.string.msg_favorito_removido
+            Snackbar.make(binding.root, getString(mensagem, receitaAtual.nome), Snackbar.LENGTH_SHORT)
+                .setAnchorView(binding.fabFavorito) // aparece acima do botão, sem cobri-lo
+                .show()
         }
     }
 
@@ -86,5 +96,6 @@ class DetalheActivity : AppCompatActivity() {
             android.R.drawable.btn_star_big_off
         }
         binding.fabFavorito.setImageResource(icone)
+        binding.txtSeloCurtidaDetalhe.visibility = if (isFavorito) View.VISIBLE else View.GONE
     }
 }

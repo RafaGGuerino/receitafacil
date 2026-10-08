@@ -24,6 +24,25 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <!-- Selo exibido só quando a receita está curtida -->
+        <TextView
+            android:id="@+id/txtSeloCurtida"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="@drawable/bg_selo_curtida"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:text="@string/selo_curtida"
+            android:textColor="@color/secondaryColor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/imgReceita"
+            app:layout_constraintEnd_toEndOf="@id/imgReceita" />
+
         <!-- Título da receita -->
         <TextView
             android:id="@+id/txtTituloReceita"

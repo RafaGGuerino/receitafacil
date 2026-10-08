@@ -20,6 +20,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.ajustarInsets(binding.root)
 
+        setContentView(binding.root)
+        this.ajustarInsets(binding.root)
+        exibirLogoNoTopo()
+
         binding.rvReceitas.layoutManager = LinearLayoutManager(this)
 
         // Alterna entre "Todas" e "Favoritas"

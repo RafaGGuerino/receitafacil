@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Receita Facil</string>
+    <string name="app_name">Receita Fácil</string>
 
     <!-- Tela principal -->
     <string name="filtro_todas">Todas</string>
@@ -17,4 +17,9 @@
     <!-- Acessibilidade -->
     <string name="desc_imagem_receita">Foto da receita</string>
     <string name="desc_favoritar">Favoritar receita</string>
+
+    <!-- Feedback de favorito -->
+    <string name="msg_favorito_adicionado">"%1$s" adicionada aos favoritos</string>
+    <string name="msg_favorito_removido">"%1$s" removida dos favoritos</string>
+    <string name="selo_curtida">★</string>
 </resources>
