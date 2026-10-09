@@ -7,7 +7,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updatePadding
 
-/** Afasta o conteúdo da barra de status, da barra de ação e da barra de gestos. */
 fun AppCompatActivity.ajustarInsets(root: View) {
     val tv = TypedValue()
     val alturaActionBar =

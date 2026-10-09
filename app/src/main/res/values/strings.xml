@@ -4,7 +4,7 @@
     <!-- Tela principal -->
     <string name="filtro_todas">Todas</string>
     <string name="filtro_favoritas">Favoritas</string>
-    <string name="msg_sem_favoritas">Não há receitas curtidas</string>
+    <string name="msg_sem_favoritas">Não há receitas favoritas</string>
 
     <!-- Detalhe -->
     <string name="titulo_ingredientes">Ingredientes</string>
